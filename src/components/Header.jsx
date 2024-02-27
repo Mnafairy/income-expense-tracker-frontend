@@ -1,6 +1,6 @@
 export const Header = () => {
   return (
-    <div className="py-4">
+    <div className="w-[1440px] m-auto px-[120px] py-4">
       <div className="navbar bg-base-100">
         <div className="flex-1 gap-6">
           <svg
