@@ -1,55 +1,45 @@
 import Link from "next/link";
-import { GeldIcon } from "@/components/icons/icon";
+import { GeldIcon, Geldtxt } from "@/components/icons/icon";
 const signUp = () => {
   return (
     <div className="w-screen h-screen flex">
       <div className=" w-1/2 h-full relative">
         <div className="flex flex-col items-center gap-10 relative left-[280px] top-80 ">
-          <div className="flex gap-[10px] p-[5.5px]">
+          <div className="flex items-center gap-[10px] p-[5.5px]">
             <GeldIcon />
-            <div className="text-2xl font-semibold ">Geld</div>
+            <Geldtxt />
+            {/* <div className="text-2xl font-semibold ">Geld</div> */}
           </div>
           <div className="flex flex-col items-center gap-2">
             <div className="text-2xl font-semibold text-[#0F172A]">
-              Create Geld Account{" "}
+              Create Geld Account
             </div>
             <div className="text-[#334155]">
               Sign up below to create your Wallet account
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300 justify-start items-center inline-flex">
-              <input
-                type="text"
-                placeholder="Name"
-                className="grow shrink basis-0 text-neutral-400 bg-gray-100"
-              />
-            </div>
-            <div className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300 justify-start items-center inline-flex">
-              <input
-                type="text"
-                placeholder="Email"
-                className="grow shrink basis-0 text-neutral-400 bg-gray-100"
-              />
-            </div>
-            <div className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300 justify-start items-center inline-flex">
-              <input
-                type="text"
-                placeholder="Password"
-                className="grow shrink basis-0 text-neutral-400 bg-gray-100"
-              />
-            </div>
-            <div className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300 justify-start items-center inline-flex">
-              <input
-                type="text"
-                placeholder="Re-Password"
-                className="grow shrink basis-0 text-neutral-400 bg-gray-100"
-              />
-            </div>
+            <input
+              className="w-96 h-12 px-4 bg-gray-100 rounded-lg border border-gray-300"
+              placeholder="Name"
+            />
+            <input
+              className="w-96 h-12 px-4 bg-gray-100 rounded-lg border border-gray-300"
+              placeholder="Email"
+            />
+            <input
+              className="w-96 h-12 px-4 bg-gray-100  rounded-lg border border-gray-300"
+              placeholder="Password"
+            />
+            <input
+              className="w-96 h-12 px-4 bg-gray-100 rounded-lg border border-gray-300"
+              placeholder=" Re-password"
+            />
             <div className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex">
               <div className="text-white text-xl leading-7">Sign up</div>
             </div>
           </div>
+          <div className="flex flex-col gap-5 w-[352px] "></div>
 
           <div className="text-[#0F172A]">
             Already have account?
