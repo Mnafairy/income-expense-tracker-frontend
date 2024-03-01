@@ -4,7 +4,7 @@ const Login = () => {
   return (
     <div className="w-screen h-screen flex">
       <div className=" w-1/2 h-full relative">
-        <div className="flex flex-col items-center gap-10 relative left-[280px] top-80 ">
+        <div className="flex flex-col items-center gap-10 relative left-[150px] top-80 ">
           <div className="flex items-center gap-[10px] p-[5.5px]">
             <GeldIcon />
             <Geldtxt />

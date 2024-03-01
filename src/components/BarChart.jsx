@@ -21,17 +21,23 @@ ChartJS.register(
 const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
 export const data = {
-  labels,
+  labels: labels,
   datasets: [
     {
-      label: "Dataset 1",
-      data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      label: "Income",
+      data: labels.map(() => faker.number.int({ min: 0, max: 10000000 })),
+      backgroundColor: "#84CC16",
+      barThickness: 15,
+      borderRadius: 20,
+      gap: 40,
     },
     {
-      label: "Dataset 2",
-      data: labels.map(() => faker.number.int({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      label: "Expense",
+      data: labels.map(() => faker.number.int({ min: 0, max: 10000000 })),
+      backgroundColor: "#F97316",
+      barThickness: 15,
+      borderRadius: 20,
+      gap: 40,
     },
   ],
 };
@@ -42,8 +48,8 @@ export const BarChart = () => {
       <div className="flex justify-between py-4 px-6 border-b border-[#E2E8F0]">
         <div className="font-semibold text-[#0F172A]">Income-Expense</div>
       </div>
-      <div className="py-8 px-6">
-        <div className="w-[540px] h-[200px]">
+      <div className="w-[588px] h-[226px] py-2 px-6">
+        <div className="w-full h-full">
           <Bar data={data} />
         </div>
       </div>
