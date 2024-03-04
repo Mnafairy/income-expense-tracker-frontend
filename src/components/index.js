@@ -5,3 +5,7 @@ export * from "./GeldCard";
 export * from "./BarChart";
 export * from "./DoughnutChart";
 export * from "./LastRecords";
+export * from "./CreateUser";
+export * from "./StepOne";
+export * from "./StepTwo";
+export * from "./StepThree";

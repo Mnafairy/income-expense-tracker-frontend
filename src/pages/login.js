@@ -6,9 +6,8 @@ const Login = () => {
       <div className=" w-1/2 h-full relative">
         <div className="flex flex-col items-center gap-10 relative left-[150px] top-80 ">
           <div className="flex items-center gap-[10px] p-[5.5px]">
-            <GeldIcon />
-            <Geldtxt />
-            {/* <div className="text-2xl font-bold ">Geld</div> */}
+            <GeldIcon width={"23.8"} height={"23.5"} />
+            <Geldtxt width={"48"} height={"16.7"} />
           </div>
           <div className="flex flex-col items-center gap-2">
             <div className="text-2xl font-semibold text-[#0F172A]">
@@ -27,9 +26,11 @@ const Login = () => {
               className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300"
               placeholder="Password"
             />
-            <div className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex">
-              <div className="text-white text-xl leading-7">Log in</div>
-            </div>
+            <Link href={"/dashboard"}>
+              <div className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex">
+                <div className="text-white text-xl leading-7">Log in</div>
+              </div>
+            </Link>
           </div>
           <div className="text-[#0F172A]">
             Don't have account?{" "}

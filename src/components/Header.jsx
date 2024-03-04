@@ -1,12 +1,17 @@
+import Link from "next/link";
 import { GeldIcon } from "./icons/icon";
 export const Header = () => {
   return (
     <div className="w-[1440px] m-auto px-[120px] py-4">
       <div className="navbar bg-base-100">
         <div className="flex-1 gap-6">
-          <GeldIcon />
-          <a className="btn btn-ghost text-xl">Dashboard</a>
-          <a className="btn btn-ghost text-xl">Record</a>
+          <GeldIcon width="27.8" height="27.4" />
+          <Link href={"/dashboard"}>
+            <div className="btn btn-ghost text-xl">Dashboard</div>
+          </Link>
+          <Link href={"/record"}>
+            <div className="btn btn-ghost text-xl">Record</div>
+          </Link>
         </div>
         <div className="flex-none gap-2 w-[180px] justify-between">
           <button class="flex items-center justify-center text-white w-[100px] rounded-[20px] h-8 bg-primary">

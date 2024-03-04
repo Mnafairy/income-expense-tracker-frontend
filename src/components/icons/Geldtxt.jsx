@@ -1,8 +1,8 @@
-export const Geldtxt = () => (
+export const Geldtxt = ({ width, height }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={49}
-    height={18}
+    width={width}
+    height={height}
     viewBox="0 0 49 18"
     fill="none"
   >
