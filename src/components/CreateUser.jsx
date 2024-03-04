@@ -4,7 +4,7 @@ export const CreateUser = ({ setShowLoad }) => {
   return (
     <div className="w-screen h-screen flex">
       <div className=" w-1/2 h-full relative flex justify-center items-center">
-        <div className="w-96 flex flex-col items-center gap-10 relative left-[150px]">
+        <div className="w-96 flex flex-col items-center gap-10 relative left-[50px]">
           <div className="flex items-center gap-[10px] p-[5.5px]">
             <GeldIcon width={"23.8"} height={"23.5"} />
             <Geldtxt width={"48"} height={"16.7"} />

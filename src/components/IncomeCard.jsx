@@ -1,6 +1,6 @@
 export const IncomeCard = ({ price }) => {
   return (
-    <div className="w-[384px] h-[220px] bg-white rounded-xl	">
+    <div className="w-[384px] h-[220px] bg-white rounded-xl">
       <div className="flex items-center py-4 px-6 gap-2 border-b border-[#E2E8F0]">
         <div className=" bg-lime-500 rounded-full w-2 h-2"></div>
         <div className="font-semibold ">Your income </div>

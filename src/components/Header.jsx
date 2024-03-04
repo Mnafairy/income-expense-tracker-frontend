@@ -7,10 +7,10 @@ export const Header = () => {
         <div className="flex-1 gap-6">
           <GeldIcon width="27.8" height="27.4" />
           <Link href={"/dashboard"}>
-            <div className="btn btn-ghost text-xl">Dashboard</div>
+            <div className="btn btn-ghost text-base ">Dashboard</div>
           </Link>
           <Link href={"/record"}>
-            <div className="btn btn-ghost text-xl">Record</div>
+            <div className="btn btn-ghost text-base">Record</div>
           </Link>
         </div>
         <div className="flex-none gap-2 w-[180px] justify-between">

@@ -5,13 +5,13 @@ const signUp = () => {
   return (
     <div>
       <div className={`${showLoad == "signUp" ? "block" : "hidden"}`}>
-        <CreateUser showLoad={showLoad} setShowLoad={setShowLoad} />
+        <CreateUser setShowLoad={setShowLoad} />
       </div>
       <div className={`${showLoad == "StepOne" ? "block" : "hidden"}`}>
-        <StepOne showLoad={showLoad} setShowLoad={setShowLoad} />
+        <StepOne setShowLoad={setShowLoad} />
       </div>
       <div className={`${showLoad == "StepTwo" ? "block" : "hidden"}`}>
-        <StepTwo showLoad={showLoad} setShowLoad={setShowLoad} />
+        <StepTwo setShowLoad={setShowLoad} />
       </div>
       <div className={`${showLoad == "StepThree" ? "block" : "hidden"}`}>
         <StepThree />
