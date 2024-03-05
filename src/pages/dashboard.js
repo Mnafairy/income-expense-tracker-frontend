@@ -10,7 +10,7 @@ import {
 import { HomeIcon } from "@/components/icons/icon";
 const Dashboard = () => {
   return (
-    <div className="bg-[#F3F4F6] font-">
+    <div className="bg-[#F3F4F6] h-screen">
       <div className="w-[1440px] px-[120px] m-auto">
         <div className="pt-8 flex flex-col gap-8">
           <div className="flex justify-between">
