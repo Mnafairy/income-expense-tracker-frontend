@@ -10,7 +10,7 @@ import {
 import { HomeIcon } from "@/components/icons/icon";
 const Dashboard = () => {
   return (
-    <div className="bg-[#F3F4F6] h-screen">
+    <div className="bg-[#F3F4F6] pb-10 h-screen">
       <div className="w-[1440px] px-[120px] m-auto">
         <div className="pt-8 flex flex-col gap-8">
           <div className="flex justify-between">
@@ -24,7 +24,7 @@ const Dashboard = () => {
           </div>
           <LastRecords />
         </div>
-        <div className="bg-white rounded-xl mb-10">
+        <div className="bg-white rounded-xl ">
           <div className="py-4 px-6 text-slate-900 font-semibold border-b border-slate-200 ">
             Last records
           </div>
