@@ -27,7 +27,7 @@ export const StepTwo = ({ setShowLoad }) => {
             <div className="rounded-2">
               <input
                 className="w-96 h-12 px-4 bg-gray-100 rounded-lg border border-gray-300"
-                placeholder="Email"
+                placeholder="Balance"
               />
             </div>
           </div>
