@@ -1,33 +1,44 @@
 import Link from "next/link";
 import { GeldIcon, Geldtxt } from "@/components/icons/icon";
 import { useState } from "react";
+import { Loading } from "./Loading";
 export const CreateUser = ({ setShowLoad }) => {
+  const [loading, setLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const submitHandler = (e) => {
+  const BE_URL = "http://localhost:4000/signup";
+
+  async function handleSubmit(e) {
     e.preventDefault();
-  };
-  //  async function handleSubmit(e) {
-  //     const data = {
-  //       username: e.target.username.value,
-  //       age: e.target.age.value,
-  //       id: newid,
-  //     };
-  //     const options = {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     };
-  //     const FETCHED_DATA = await fetch(BE_URL, options);
-  //     const FETCHED_JSON = await FETCHED_DATA.json();
-  //     setUser(FETCHED_JSON.users);
-  //     // setUse(FETCHED_JSON.users);
-  //   }
+    if (e.target.password.value === e.target.repassword.value) {
+      setLoading(true);
+      const data = {
+        username: e.target.username.value,
+        email: e.target.email.value,
+        password: e.target.password.value === e.target.repassword.value,
+      };
+
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+      const FETCHED_DATA = await fetch(BE_URL, options);
+      const FETCHED_JSON = await FETCHED_DATA.json();
+      setLoading(false);
+      setUser(FETCHED_JSON.users);
+    } else {
+      alert("Password does not match");
+    }
+  }
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="w-screen h-screen flex">
       <div className=" w-1/2 h-full relative flex justify-center items-center">
@@ -45,7 +56,7 @@ export const CreateUser = ({ setShowLoad }) => {
             </div>
           </div>
           <form
-            onSubmit={() => submitHandler()}
+            onSubmit={() => handleSubmit()}
             className="[&_input]:w-96 [&_input]:h-12 [&_input]:px-4 [&_input]:bg-gray-100 [&_input]:rounded-lg [&_input]:border [&_input]:border-gray-300 flex flex-col gap-4"
           >
             <input type="text" name="name" placeholder="Name" required />
@@ -58,7 +69,7 @@ export const CreateUser = ({ setShowLoad }) => {
             />
             <input
               type="password"
-              name="re-ppassword"
+              name="repassword"
               placeholder="Re-password"
               required
             />

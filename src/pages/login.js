@@ -1,6 +1,20 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { GeldIcon, Geldtxt } from "@/components/icons/icon";
 const Login = () => {
+  const router = useRouter();
+  async function handleSubmit(e) {}
+  const handleSubmit = async () => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:4000/users");
+    const users = await res.json();
+    users.map((val) => {
+      return val.email === e.target.email.value &&
+        val.password === e.target.password.value
+        ? router.push("/dashboard")
+        : "error";
+    });
+  };
   return (
     <div className="w-screen h-screen flex">
       <div className=" w-1/2 h-full relative flex justify-center items-center">
@@ -17,7 +31,7 @@ const Login = () => {
               Welcome back, Please enter your details
             </div>
           </div>
-          <div className="flex-col gap-4 flex">
+          <form onSubmit={() => handleSubmit()} className="flex-col gap-4 flex">
             <input
               className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300"
               placeholder="Email"
@@ -31,7 +45,7 @@ const Login = () => {
                 <div className="text-white text-xl leading-7">Log in</div>
               </div>
             </Link>
-          </div>
+          </form>
           <div className="text-[#0F172A]">
             Don't have account?{" "}
             <Link href={"/signUp"}>
