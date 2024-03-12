@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { GeldIcon, Geldtxt } from "@/components/icons/icon";
 const Login = () => {
   const router = useRouter();
-  async function handleSubmit(e) {}
   const handleSubmit = async () => {
     e.preventDefault();
     const res = await fetch("http://localhost:4000/users");
@@ -12,7 +11,7 @@ const Login = () => {
       return val.email === e.target.email.value &&
         val.password === e.target.password.value
         ? router.push("/dashboard")
-        : "error";
+        : alert(error);
     });
   };
   return (
@@ -31,20 +30,24 @@ const Login = () => {
               Welcome back, Please enter your details
             </div>
           </div>
-          <form onSubmit={() => handleSubmit()} className="flex-col gap-4 flex">
+          <form onSubmit={handleSubmit} className="flex-col gap-4 flex">
             <input
               className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300"
+              type="email"
               placeholder="Email"
+              name="email"
             />
             <input
               className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300"
+              type="password"
               placeholder="Password"
+              name="password"
             />
-            <Link href={"/dashboard"}>
-              <div className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex">
-                <div className="text-white text-xl leading-7">Log in</div>
-              </div>
-            </Link>
+            {/* <Link href={"/dashboard"}> */}
+            <button className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex">
+              <div className="text-white text-xl leading-7">Log in</div>
+            </button>
+            {/* </Link> */}
           </form>
           <div className="text-[#0F172A]">
             Don't have account?{" "}
