@@ -1,19 +1,29 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GeldIcon, Geldtxt } from "@/components/icons/icon";
+import { useState } from "react";
 const Login = () => {
   const router = useRouter();
-  const handleSubmit = async () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:4000/users");
-    const users = await res.json();
-    users.map((val) => {
-      return val.email === e.target.email.value &&
-        val.password === e.target.password.value
-        ? router.push("/dashboard")
-        : alert(error);
-    });
+    const data = {
+      email,
+      password,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const FETCHED_DATA = await fetch("http://localhost:4000/login", options);
+    const FETCHED_JSON = await FETCHED_DATA.json();
   };
+
   return (
     <div className="w-screen h-screen flex">
       <div className=" w-1/2 h-full relative flex justify-center items-center">
@@ -30,21 +40,26 @@ const Login = () => {
               Welcome back, Please enter your details
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="flex-col gap-4 flex">
+          <form onSubmit={handleLogin} className="flex-col gap-4 flex">
             <input
               className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300"
               type="email"
               placeholder="Email"
               name="email"
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               className="w-96 h-12 p-4 bg-gray-100 rounded-lg border border-gray-300"
               type="password"
               placeholder="Password"
               name="password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             {/* <Link href={"/dashboard"}> */}
-            <button className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex">
+            <button
+              type="submit"
+              className="w-96 h-12 px-4 bg-blue-600 rounded-[20px] justify-center items-center gap-1 inline-flex"
+            >
               <div className="text-white text-xl leading-7">Log in</div>
             </button>
             {/* </Link> */}

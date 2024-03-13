@@ -1,11 +1,29 @@
 import { GeldIcon, Geldtxt, DollarIcon } from "./icons/icon";
+import { useState } from "react";
+
 export const StepOne = ({ setShowLoad, newUserId }) => {
   // async function ID ashiglaad DB update hiine
+  const [currency, setCurrency] = useState("MNT-Mongolian Tugrik");
 
-  async function handleSumbit(e) {
-    e.preventDefault();
-    
-  }
+  const handleCurrency = async () => {
+    const data = {
+      currency: currency,
+      id: newUserId,
+    };
+    const option = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const FETCHED_DATA = await fetch(
+      "http://localhost:4000/currencyUpdate",
+      option
+    );
+    const FETCHED_JSON = await FETCHED_DATA.json();
+    console.log("FETCHED_JSON: ", FETCHED_JSON);
+  };
   return (
     <div className="w-screen h-screen flex flex-col items-center">
       <div className="flex flex-col items-center gap-12 mt-10 mb-[140px]">
@@ -30,7 +48,12 @@ export const StepOne = ({ setShowLoad, newUserId }) => {
                 Select base currency
               </p>
             </div>
-            <select className="text-[#1F2937] font-semibold select select-bordered select-lg w-[384px] bg-gray-100 border ">
+            <select
+              onChange={(e) => {
+                setCurrency(e.target.value);
+              }}
+              className="text-[#1F2937] font-semibold select select-bordered select-lg w-[384px] bg-gray-100 border "
+            >
               <option>MNT-Mongolian Tugrik</option>
               <option>UKT-Ukraine UAH</option>
               <option>KR-Korea KRW</option>
@@ -46,6 +69,7 @@ export const StepOne = ({ setShowLoad, newUserId }) => {
         <button
           onClick={() => {
             setShowLoad("StepTwo");
+            handleCurrency();
           }}
           className="flex w-[384px] h-12 justify-center items-center rounded-[20px]  bg-primary"
         >

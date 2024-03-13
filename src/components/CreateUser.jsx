@@ -6,11 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export const CreateUser = ({ setShowLoad, setNewUserId }) => {
   const [loading, setLoading] = useState(false);
-  // const [registerInfo, setRegisterInfo] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // });
   
   async function handleSubmit(e) {
     const id = uuidv4();
