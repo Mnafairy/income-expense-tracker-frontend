@@ -2,20 +2,24 @@ import Link from "next/link";
 import { GeldIcon, Geldtxt } from "@/components/icons/icon";
 import { useState } from "react";
 import { Loading } from "./Loading";
-export const CreateUser = ({ setShowLoad }) => {
-  const [loading, setLoading] = useState(false);
-  const [registerInfo, setRegisterInfo] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const BE_URL = "http://localhost:4000/signup";
+import { v4 as uuidv4 } from "uuid";
 
+export const CreateUser = ({ setShowLoad, setNewUserId }) => {
+  const [loading, setLoading] = useState(false);
+  // const [registerInfo, setRegisterInfo] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  // });
+  
   async function handleSubmit(e) {
+    const id = uuidv4();
+    setNewUserId(id);
     e.preventDefault();
     if (e.target.password.value === e.target.repassword.value) {
       setLoading(true);
       const data = {
+        id: id,
         name: e.target.name.value,
         email: e.target.email.value,
         password: e.target.password.value,
@@ -29,7 +33,7 @@ export const CreateUser = ({ setShowLoad }) => {
         },
         body: JSON.stringify(data),
       };
-      const FETCHED_DATA = await fetch(BE_URL, options);
+      const FETCHED_DATA = await fetch("http://localhost:4000/signup", options);
       const FETCHED_JSON = await FETCHED_DATA.json();
       setLoading(false);
     } else {

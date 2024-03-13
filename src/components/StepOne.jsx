@@ -1,5 +1,11 @@
 import { GeldIcon, Geldtxt, DollarIcon } from "./icons/icon";
-export const StepOne = ({ setShowLoad }) => {
+export const StepOne = ({ setShowLoad, newUserId }) => {
+  // async function ID ashiglaad DB update hiine
+
+  async function handleSumbit(e) {
+    e.preventDefault();
+    
+  }
   return (
     <div className="w-screen h-screen flex flex-col items-center">
       <div className="flex flex-col items-center gap-12 mt-10 mb-[140px]">
