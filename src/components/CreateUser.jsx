@@ -10,6 +10,7 @@ export const CreateUser = ({ setShowLoad, setNewUserId }) => {
   async function handleSubmit(e) {
     const id = uuidv4();
     setNewUserId(id);
+    
     e.preventDefault();
     if (e.target.password.value === e.target.repassword.value) {
       setLoading(true);

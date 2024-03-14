@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CreateUser, StepOne, StepTwo, StepThree } from "@/components";
 const signUp = () => {
   const [showLoad, setShowLoad] = useState("signUp");
-  const [newUserId, setNewUserId] = useState("signUp");
+  const [newUserId, setNewUserId] = useState("");
 
   return (
     <div>
