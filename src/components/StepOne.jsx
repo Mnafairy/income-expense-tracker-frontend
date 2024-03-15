@@ -24,6 +24,7 @@ export const StepOne = ({ setShowLoad, newUserId }) => {
     const FETCHED_JSON = await FETCHED_DATA.json();
     console.log("FETCHED_JSON: ", FETCHED_JSON);
   };
+  
   return (
     <div className="w-screen h-screen flex flex-col items-center">
       <div className="flex flex-col items-center gap-12 mt-10 mb-[140px]">
